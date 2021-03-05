@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Rangecomponent from './components/Range';
+
+import styled from 'styled-components'
+import ToggleButton from './components/Toggle';
+import SegmentedControl from './components/Segment';
+const Styles = styled.div`
+
+`;
+
 
 function App() {
+  const [selected, setSelected] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Styles>
+      <Rangecomponent />
+      <ToggleButton selected={selected} toggleSelected={() => {
+        setSelected(!selected);
+      }} />
+      <SegmentedControl />
+    </Styles>
   );
 }
+
 
 export default App;
